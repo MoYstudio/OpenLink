@@ -1,3 +1,4 @@
+//注释的是收藏按钮相关代码，待收藏功能实现后可取消注释
 package fun.moystudio.openlink.gui;
 
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -9,7 +10,7 @@ import fun.moystudio.openlink.json.JsonUserInfo;
 import fun.moystudio.openlink.logic.Utils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.gui.components.ImageButton;
+//import net.minecraft.client.gui.components.ImageButton;
 import net.minecraft.client.gui.components.ObjectSelectionList;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.CommonComponents;
@@ -148,18 +149,18 @@ public class NodeSelectionScreen extends Screen {
             JsonNode node;
             public Entry(JsonNode node){
                 this.node=node;
-                favoriteButton = new ImageButton(0,0,20,20,0,0,0,FAVORITE_ICON_FALSE,20,20,button -> {
-                    changeFavoriteState();
-                });
+//                favoriteButton = new ImageButton(0,0,20,20,0,0,0,FAVORITE_ICON_FALSE,20,20,button -> {
+//                    changeFavoriteState();
+//                });
             }
 
-            private void changeFavoriteState() {
-                //TODO: change favorite state
-                boolean favorite = true;//TODO: to be replaced with actual favorite state logic
-                favoriteButton = new ImageButton(0,0,20,20,0,0,0,favorite?FAVORITE_ICON_TRUE:FAVORITE_ICON_FALSE, button -> {
-                    changeFavoriteState();
-                });
-            }
+//            private void changeFavoriteState() {
+//                //TODO: change favorite state
+//                boolean favorite = true;//TODO: to be replaced with actual favorite state logic
+//                favoriteButton = new ImageButton(0,0,20,20,0,0,0,favorite?FAVORITE_ICON_TRUE:FAVORITE_ICON_FALSE, button -> {
+//                    changeFavoriteState();
+//                });
+//            }
 
             @Override
             public @NotNull Component getNarration() {
@@ -168,7 +169,7 @@ public class NodeSelectionScreen extends Screen {
 
             @Override
             public boolean mouseClicked(double d, double e, int i) {
-                if (favoriteButton.mouseClicked(d,e,i)) return true;
+//                if (favoriteButton.mouseClicked(d,e,i)) return true;
                 if (i == 0) {
                     this.select();
                     return true;
@@ -177,7 +178,7 @@ public class NodeSelectionScreen extends Screen {
                 }
             }
 
-            ImageButton favoriteButton;
+//            ImageButton favoriteButton;
 
             private void select(){
                 NodeSelectionList.this.setSelected(this);
@@ -209,9 +210,9 @@ public class NodeSelectionScreen extends Screen {
                 drawString(poseStack, NodeSelectionScreen.NodeSelectionList.this.minecraft.font, description, x + 4, y + 4 + (entryHeight-4) / 2, 0xffffffff);
                 drawString(poseStack, NodeSelectionScreen.NodeSelectionList.this.minecraft.font, this.node.fullyLoaded||this.node.status!=200?Utils.translatableText("text.openlink.node_unavailable"):(this.node.needRealname?Utils.translatableText("text.openlink.node_needrealname"):Utils.translatableText("text.openlink.node_available")), x + entryWidth - 4 - NodeSelectionScreen.NodeSelectionList.this.minecraft.font.width(this.node.fullyLoaded||this.node.status!=200?Utils.translatableText("text.openlink.node_unavailable"):(this.node.needRealname?Utils.translatableText("text.openlink.node_needrealname"):Utils.translatableText("text.openlink.node_available"))), y + 4, 0xffffffff);
                 drawString(poseStack, NodeSelectionScreen.NodeSelectionList.this.minecraft.font, this.node.bandwidth+"Mbps"+(this.node.bandwidthMagnification>1?" * "+this.node.bandwidthMagnification:""), x + entryWidth - 4 - NodeSelectionScreen.NodeSelectionList.this.minecraft.font.width(this.node.bandwidth+"Mbps"+(this.node.bandwidthMagnification>1?" * "+this.node.bandwidthMagnification:"")), y + 4 + (entryHeight-4) / 2, 0xffffffff);
-                favoriteButton.x=x-25;
-                favoriteButton.y=(y+entryHeight)/2+10;
-                favoriteButton.render(poseStack, mouseX, mouseY, f);
+//                favoriteButton.x=x-25;
+//                favoriteButton.y=(y+entryHeight)/2+10;
+//                favoriteButton.render(poseStack, mouseX, mouseY, f);
                 if(this.isMouseOver(mouseX, mouseY)) {
                     renderComponentTooltip(poseStack, Arrays.stream(this.node.description.replaceAll("(.{20})", "$1\n").split("\n")).map(s->(Component)Utils.literalText(s)).toList(), mouseX, mouseY);
                 }
