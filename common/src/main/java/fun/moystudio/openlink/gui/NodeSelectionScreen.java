@@ -15,7 +15,7 @@ import net.minecraft.client.gui.components.ObjectSelectionList;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+//import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
@@ -26,8 +26,8 @@ public class NodeSelectionScreen extends Screen {
     NodeSelectionList selectionList;
     Button done;
 
-    private static final ResourceLocation FAVORITE_ICON_TRUE = Utils.createResourceLocation("openlink", "textures/gui/favorite_true.png");
-    private static final ResourceLocation FAVORITE_ICON_FALSE = Utils.createResourceLocation("openlink", "textures/gui/favorite_false.png");
+//    private static final ResourceLocation FAVORITE_ICON_TRUE = Utils.createResourceLocation("openlink", "textures/gui/favorite_true.png");
+//    private static final ResourceLocation FAVORITE_ICON_FALSE = Utils.createResourceLocation("openlink", "textures/gui/favorite_false.png");
 
     public NodeSelectionScreen(Screen lastscreen) {
         super(Utils.translatableText("gui.openlink.nodeselectionscreentitle"));
